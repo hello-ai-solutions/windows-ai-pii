@@ -15,12 +15,19 @@ build/
 .env.local
 .env.production
 
-# AWS
+# AWS - CRITICAL: Never commit these!
 .aws/
-terraform.tfstate
-terraform.tfstate.backup
+terraform.tfstate*
 *.tfvars
 .terraform/
+*.pem
+*.key
+
+# Compiled binaries that may contain sensitive data
+proxy1
+proxy2
+picli0
+windows
 
 # IDE
 .vscode/
