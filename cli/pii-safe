@@ -1,0 +1,20 @@
+#!/bin/bash
+
+API="https://kzve09lj7b.execute-api.ap-southeast-2.amazonaws.com/prod/detect-pii"
+
+sanitize_text() {
+    local text="$1"
+    curl -s -X POST "$API" \
+        -H "Content-Type: application/json" \
+        -d "{\"text\":\"$text\"}" | \
+    jq -r '.sanitizedText // empty' 2>/dev/null || echo "$text"
+}
+
+# Sanitize all arguments
+sanitized_args=()
+for arg in "$@"; do
+    sanitized_args+=("$(sanitize_text "$arg")")
+done
+
+# Execute the original command with sanitized arguments
+exec "${sanitized_args[@]}"
