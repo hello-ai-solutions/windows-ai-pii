@@ -1,3 +1,31 @@
+# ⚠️  SECURITY WARNING: NEVER COMMIT THESE FILES! ⚠️
+# AWS Credentials & Infrastructure
+.aws/
+*.pem
+*.key
+aws-credentials*
+credentials*
+
+# Terraform - Contains resource IDs and sensitive data
+terraform.tfstate*
+*.tfvars
+.terraform/
+terraform.tfplan
+
+# Environment Variables - May contain secrets
+.env*
+config.json
+secrets.json
+
+# Compiled Binaries - May contain embedded credentials
+*.exe
+*.bin
+proxy1
+proxy2
+picli0
+windows
+pii-*
+
 # Dependencies
 node_modules/
 npm-debug.log*
@@ -7,27 +35,6 @@ yarn-error.log*
 # Build outputs
 dist/
 build/
-*.exe
-*.bin
-
-# Environment variables
-.env
-.env.local
-.env.production
-
-# AWS - CRITICAL: Never commit these!
-.aws/
-terraform.tfstate*
-*.tfvars
-.terraform/
-*.pem
-*.key
-
-# Compiled binaries that may contain sensitive data
-proxy1
-proxy2
-picli0
-windows
 
 # IDE
 .vscode/
@@ -46,3 +53,8 @@ logs/
 # Temporary files
 tmp/
 temp/
+
+# Backup files
+*.bak
+*.backup
+*~
